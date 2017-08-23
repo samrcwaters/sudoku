@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel = "icon" href = "srcwLogo.jpeg">
+		<title>Sudoku Generator</title>
+		<style>
+			body{
+				font-size: 40px;
+				font-family: Helvetica;
+			}
+			
+			#puzzleContainer {
+				margin-top: 30px !important;
+				margin-bottom: 30px !important;
+				text-align: center;
+				width: 564px;
+				margin: auto;
+				border: 6px solid black;
+			}
+			
+			.center{
+				border: 6px dotted black;
+				padding: 10px;
+				margin: auto;
+				text-align: center;
+				width: 544px;
+			}
+			
+			#diffSelect{
+				font-size: 30px;
+			}
+			
+			.row{
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				vertical-align: middle;
+			}
+			
+			.box {
+				height: 60px;
+				width: 60px;
+				line-height: 60px;
+				display: inline-block;
+				border: 1px solid black;
+				word-wrap: break-word;
+			}
+			
+			div[name=boxInput] {
+				text-align: center;
+				line-height: 60px;
+				border: none;
+				vertical-align: top;
+				font-size: 40px;
+				text-align: center;
+				padding: 0;
+				background-color: rgba(245, 233, 244, 0.36);
+				color: #415bb5;
+				position: absolute;
+			}
+			
+			div[name=candInput]{
+			    margin-top: -13px;
+				line-height: 45px;
+				letter-spacing: 4px;
+				font-size: 32%;
+				position: absolute;
+			}
+			
+			#subOrSolveBox {
+				padding-top: 10px;
+				width: 70.5%;
+				margin: auto;
+			}
+			
+			#submitBtn {
+				margin-bottom: 10px;
+			}
+			
+			#submitBtn, #solveBtn {
+				width: 100%;
+			}
+			
+			#lastUpdate{
+				margin: auto;
+				text-align: center;
+				width: 544px;
+			}
+			
+			#candBtn{
+				font-size: 50%;
+				width: 60px;
+				height: 60px;
+				padding: 10px;
+				margin: 0;
+				float: right;
+			}
+			
+			#candBtnText{
+				margin-top: -15px;
+				margin-left: -40px;
+			}
+			
+			#regBtnText{
+				font-size: 42px;
+				margin-top: -4px;
+			}
+			
+			#regBtn{
+				width: 60px;
+				height: 60px;
+				padding: 10px;
+				float: left;
+			}
+			
+			button, #submitBtn {
+				background-color: #cc4163;
+				border: none;
+				color: white;
+				padding: 10px 32px 10px;
+				text-align: center;
+				display: inline-block;
+				font-size: 22px;
+			}
+			
+			.stacked {
+				position: absolute;
+				height: 60px;
+				width: 60px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type = "text/javascript" src = "sudokuGen.js"></script>
+		
+		<div id = "title" class = "center">Sudoku Puzzle Generator</div>
+			<div id = "puzzleContainer">
+			</div>
+		<div id = "diffSelect" class = "center">
+			<!--Select Difficulty:-->
+			<div id = "editButtons">
+				<button type = "button" title = "Input Answers" style = "display: none" id = "regBtn" onClick = "swapChildren('reg')"><p id = "regBtnText">1</p></button>
+				<button type = "button" title = "Input Possibile Numbers" style = "margin-bottom: 10px; display: none;" id = "candBtn" onClick = "swapChildren('cand')"><p id = "candBtnText">1</p></button>
+			</div>
+			<button type = "button" class = "btn" onClick = "run(3)">Easy</button>
+			<button type = "button" class = "btn" onClick = "run(4)">Medium</button>
+			<button type = "button" class = "btn" onClick = "run(6)">Hard</button>
+			<div id = "subOrSolveBox" style = "display: none">
+				<button type = "button" id = "submitBtn" class = "btn" onClick = "puzzleSubmit()">Submit</button>
+				<button type = "button" id = "solveBtn" class = "btn" onClick = "loadSolution()">Solve</button>
+			</div>
+		</div>
+		<div id = "lastUpdate" style = "font-size: 40%; margin-top: 50px;">
+			hello
+		</div>
+		<script type = "text/javascript">
+			document.getElementById("lastUpdate").innerHTML = "Last Updated: " + document.lastModified;
+		</script>
+	</body>
+</html>
